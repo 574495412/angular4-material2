@@ -2,9 +2,9 @@
     <mat-table fxFlexFill #table [dataSource]="dataSource" matSort>
         <!-- check Column -->
         <ng-container matColumnDef="check" style=" min-width: 1000px;">
-            <mat-header-cell *matHeaderCellDef mat-sort-header style="min-width: 60px"> </mat-header-cell>
-            <mat-cell *matCellDef="let row" style="min-width: 60px">
-                <div fxFlex>
+            <mat-header-cell *matHeaderCellDef style="width: 60px"> </mat-header-cell>
+            <mat-cell *matCellDef="let row" style="max-width: 60px">
+                <div fxFlex *ngIf="row.id!=9">
                     <mat-checkbox>{{row.id}}</mat-checkbox>
                 </div>
             </mat-cell>
@@ -12,85 +12,74 @@
 
         <!-- date Column -->
         <ng-container matColumnDef="date" style=" min-width: 1000px;">
-            <mat-header-cell *matHeaderCellDef mat-sort-header style="min-width: 126px"> 日期 </mat-header-cell>
-            <mat-cell *matCellDef="let row" style="min-width: 126px">
+            <mat-header-cell *matHeaderCellDef mat-sort-header style="min-width: 136px"> 日期 </mat-header-cell>
+            <mat-cell *matCellDef="let row" style="min-width: 146px">
                 {{row.date}}
             </mat-cell>
         </ng-container>
         <!-- orderQuantity Column -->
         <ng-container matColumnDef="orderQuantity" style=" min-width: 1000px;">
             <mat-header-cell *matHeaderCellDef mat-sort-header style="min-width: 100px"> 订单数量 </mat-header-cell>
-            <mat-cell *matCellDef="let row" style="min-width: 100px">
+            <mat-cell *matCellDef="let row" style="min-width: 100px" [ngStyle]="{'color':row.id === 9? '#D0DEA5' : ''}">
                 {{row. orderQuantity}}
             </mat-cell>
         </ng-container>
         <!--  income Column -->
         <ng-container matColumnDef="income" style=" min-width: 1000px;">
             <mat-header-cell *matHeaderCellDef mat-sort-header style="min-width: 100px"> 收入 </mat-header-cell>
-            <mat-cell *matCellDef="let row" style="min-width: 100px">
+            <mat-cell *matCellDef="let row" style="min-width: 100px" [ngStyle]="{'color':row.id === 9? '#D0DEA5' : ''}">
                 {{row.income}}
             </mat-cell>
         </ng-container>
         <!-- cash Column -->
         <ng-container matColumnDef="cash" style=" min-width: 1000px;">
             <mat-header-cell *matHeaderCellDef mat-sort-header style="min-width: 100px"> 现金 </mat-header-cell>
-            <mat-cell *matCellDef="let row" style="min-width: 100px">
+            <mat-cell *matCellDef="let row" style="min-width: 100px" [ngStyle]="{'color':row.id === 9? '#D0DEA5' : ''}">
                 {{row.cash}}
             </mat-cell>
         </ng-container>
         <!-- card Column -->
         <ng-container matColumnDef="card" style=" min-width: 1000px;">
             <mat-header-cell *matHeaderCellDef mat-sort-header style="min-width: 100px"> 卡 </mat-header-cell>
-            <mat-cell *matCellDef="let row" style="min-width: 100px">
+            <mat-cell *matCellDef="let row" style="min-width: 100px" [ngStyle]="{'color':row.id === 9? '#D0DEA5' : ''}">
                 {{row.card}}
             </mat-cell>
         </ng-container>
         <!-- mealTicket Column -->
         <ng-container matColumnDef="mealTicket" style=" min-width: 1000px;">
             <mat-header-cell *matHeaderCellDef mat-sort-header style="min-width: 100px"> 饭票 </mat-header-cell>
-            <mat-cell *matCellDef="let row" style="min-width: 100px">
+            <mat-cell *matCellDef="let row" style="min-width: 100px" [ngStyle]="{'color':row.id === 9? '#D0DEA5' : ''}">
                 {{row.mealTicket}}
             </mat-cell>
         </ng-container>
         <!-- other1 Column -->
         <ng-container matColumnDef="other1" style=" min-width: 1000px;">
             <mat-header-cell *matHeaderCellDef mat-sort-header style="min-width: 100px"> 其他1 </mat-header-cell>
-            <mat-cell *matCellDef="let row" style="min-width: 100px">
+            <mat-cell *matCellDef="let row" style="min-width: 100px" [ngStyle]="{'color':row.id === 9? '#D0DEA5' : ''}">
                 {{row.other1}}
             </mat-cell>
         </ng-container>
         <!-- other2 Column -->
         <ng-container matColumnDef="other2" style=" min-width: 1000px;">
             <mat-header-cell *matHeaderCellDef mat-sort-header style="min-width: 100px"> 其他2 </mat-header-cell>
-            <mat-cell *matCellDef="let row" style="min-width: 100px">
+            <mat-cell *matCellDef="let row" style="min-width: 100px" [ngStyle]="{'color':row.id === 9? '#D0DEA5' : ''}">
                 {{row.other2}}
             </mat-cell>
         </ng-container>
         <!-- other3 Column -->
         <ng-container matColumnDef="other3" style=" min-width: 1000px;">
             <mat-header-cell *matHeaderCellDef mat-sort-header style="min-width: 100px"> 其他3 </mat-header-cell>
-            <mat-cell *matCellDef="let row" style="min-width: 100px">
+            <mat-cell *matCellDef="let row" style="min-width: 100px" [ngStyle]="{'color':row.id === 9? '#D0DEA5' : ''}">
                 {{row.other3}}
             </mat-cell>
         </ng-container>
+
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+        <mat-row *matRowDef="let row; columns: displayedColumns;" [ngStyle]="{'background-color':row.id === 9? '#5F61AC' : '' }">
+            {{row.id}}
+        </mat-row>
     </mat-table>
-    <table fxFlexFill class="mat-table">
-        <tbody fxFlexFill class="mat-table">
-            <tr class="mat-row" role="row" style="background-color:#5F61AC">
-                <td class="mat-cell" role="gridcell" style="min-width: 60px;color:#D0DEA5"> </td>
-                <td class="mat-cell" role="gridcell" style="min-width: 126px;color:#D0DEA5"> 538 </td>
-                <td class="mat-cell" style="min-width: 100px;color:#D0DEA5" role="gridcell"> 1588.56 </td>
-                <td class="mat-cell" style="min-width: 100px;color:#D0DEA5" role="gridcell"> 1299.52 </td>
-                <td class="mat-cell" style="min-width: 100px;color:#D0DEA5" role="gridcell">11943.06 </td>
-                <td class="mat-cell" style="min-width: 100px;color:#D0DEA5" role="gridcell"> 2.00 </td>
-                <td class="mat-cell" style="min-width: 100px;color:#D0DEA5" role="gridcell"> 2642.04 </td>
-                <td class="mat-cell" style="min-width: 100px;color:#D0DEA5" role="gridcell"> 0.00 </td>
-                <td class="mat-cell" style="min-width: 100px;color:#D0DEA5" role="gridcell"> 0.00 </td>
-            </tr>
-        </tbody>
-    </table>
 </div>
 <div class="manage-table-container">
     <mat-table fxFlexFill #table1 [dataSource]="deleteDataSource">
@@ -99,7 +88,10 @@
             <mat-header-cell *matHeaderCellDef style="font-size:14px;color: rgba(0,0,0,.87);"> 类型 </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
         </ng-container>
-
+        <ng-container matColumnDef="typeNumber">
+            <mat-header-cell *matHeaderCellDef style="font-size:14px;color: rgba(0,0,0,.87);"> 类型数量 </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.typeNumber}} </mat-cell>
+        </ng-container>
         <!-- Name Column -->
         <ng-container matColumnDef="orderQuantity">
             <mat-header-cell *matHeaderCellDef style="font-size:14px;color: rgba(0,0,0,.87);"> 订单数量 </mat-header-cell>

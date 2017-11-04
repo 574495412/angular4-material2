@@ -23,7 +23,7 @@ export class CashRegisterService {
       .catch(this.handleError);
   }
   getCashAnnulReport(): Promise<any[]> {
-    let url = `${this.mockUrl1}`;
+    let url = `${this.mockUrl}`;
     return this.http.get(url)
       .toPromise()
       .then(res => {
@@ -32,7 +32,7 @@ export class CashRegisterService {
       .catch(this.handleError);
   }
   getCashMonthlyReport(): Promise<any[]> {
-    let url = `${this.mockUrl2}`;
+    let url = `${this.mockUrl}`;
     return this.http.get(url)
       .toPromise()
       .then(res => {
