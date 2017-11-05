@@ -82,15 +82,15 @@
         "other2": "131",
         "other3": "12"
     }, {
-        "id": 8,
-        "date": "2017-09-30 12:03",
-        "orderQuantity": "200",
-        "income": "220",
-        "cash": "11",
-        "card": "120",
-        "mealTicket": "152",
-        "other1": "10",
-        "other2": "11",
-        "other3": "12"
+        "id": 9,
+        "date": "",
+        "orderQuantity": "1600.00",
+        "income": "350.00",
+        "cash": "44.00",
+        "card": "550.00 ",
+        "mealTicket": "1107.00 ",
+        "other1": "2230.00",
+        "other2": " 22600",
+        "other3": " 1650.00"
     }
 ]

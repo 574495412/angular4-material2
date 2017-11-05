@@ -142,7 +142,7 @@ const data: Element[] = [
   {type:'打包类型', typeNumber:'12',orderQuantity: '12', grossIncome: '2000' ,taxRate: '10%(200)',taxIncome:'1800'},
   {type:'送包类型', typeNumber:'12',orderQuantity: '12', grossIncome: '2000' ,taxRate: '10%(200)',taxIncome:'1800'},
   {type:'常规税率', typeNumber:'其他税率1', orderQuantity: '其他税率2', grossIncome: '其他税率3' ,taxRate: '其他税率4',taxIncome:'总的税率'},
-  {type:'30%(300)', typeNumber:'20%(200)',orderQuantity: '0%(0)', grossIncome: '0%(0)' ,taxRate: '0%(0)',taxIncome:'500'},
+  {type:'300', typeNumber:'20%(200)',orderQuantity: '0%(0)', grossIncome: '0%(0)' ,taxRate: '0%(0)',taxIncome:'500'},
 ];
 
 export class DeleteDataSource extends DataSource<Element> {
