@@ -131,7 +131,27 @@
                         <mat-datepicker #myDatepicker></mat-datepicker>
                     </mat-form-field>
                     <button mat-button *ngIf="print=='printDate'">打印</button>
-                    <mat-form-field style="width:108px">
+                    <button mat-button [matMenuTriggerFor]="menu">打开月报表</button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openMonthlyDialog()">一月</button>
+                        <button mat-menu-item (click)="openMonthlyDialog()">二月</button>
+                        <button mat-menu-item (click)="openMonthlyDialog()">三月</button>
+                        <button mat-menu-item (click)="openMonthlyDialog()">四月</button>
+                        <button mat-menu-item (click)="openMonthlyDialog()">五月</button>
+                        <button mat-menu-item (click)="openMonthlyDialog()">六月</button>
+                        <button mat-menu-item (click)="openMonthlyDialog()">七月</button>
+                        <button mat-menu-item (click)="openMonthlyDialog()">八月</button>
+                        <button mat-menu-item (click)="openMonthlyDialog()">九月</button>
+                        <button mat-menu-item (click)="openMonthlyDialog()">十月</button>
+                        <button mat-menu-item (click)="openMonthlyDialog()">十一月</button>
+                        <button mat-menu-item (click)="openMonthlyDialog()">十二月</button>
+                    </mat-menu>
+                    <button mat-button [matMenuTriggerFor]="Annualmenu">打开年报表</button>
+                    <mat-menu #Annualmenu="matMenu">
+                        <button mat-menu-item (click)="openAnnualDialog()">2016</button>
+                        <button mat-menu-item (click)="openAnnualDialog()">2017</button>
+                    </mat-menu>
+                    <!-- <mat-form-field style="width:108px">
                         <input matInput [matDatepicker]="picker" (dateChange)="onMonthlyDateChange($event)">
                         <mat-datepicker #picker startView="month"></mat-datepicker>
                         <button mat-raised-button (click)="picker.open()" style="position: absolute;right: -104px;top: 0px;">打开月报表</button>
@@ -140,7 +160,7 @@
                         <input matInput [matDatepicker]="Annualpicker" (dateChange)="onAnnualDateChange($event)">
                         <mat-datepicker #Annualpicker startView="year"></mat-datepicker>
                         <button mat-raised-button (click)="Annualpicker.open()" style="position: absolute;right: -104px;top: 0px;">打开年报表</button>
-                    </mat-form-field>
+                    </mat-form-field> -->
                 </mat-card-footer>
             </mat-card>
         </mat-tab>

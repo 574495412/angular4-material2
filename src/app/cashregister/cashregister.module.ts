@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule, JsonpModule} from '@angular/http';
 import {
-  MatButtonModule, MatCardModule, MatIconModule, MatCheckboxModule, MatTabsModule, MatTableModule, MatNativeDateModule, MatSortModule, MatFormFieldModule, MatInputModule, MatDatepickerModule
+  MatButtonModule, MatCardModule,MatMenuModule, MatIconModule, MatCheckboxModule, MatTabsModule, MatTableModule, MatNativeDateModule, MatSortModule, MatFormFieldModule, MatInputModule, MatDatepickerModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CashRegisterRoutingModule } from './cashregister-routing.module';
@@ -21,6 +21,7 @@ import { MonthlyReporteDialog } from './manage-post/manage-post.component';
     MatButtonModule,
     MatIconModule,
     MatInputModule,
+    MatMenuModule,
     MatCheckboxModule,
     MatNativeDateModule,
     MatTableModule,
