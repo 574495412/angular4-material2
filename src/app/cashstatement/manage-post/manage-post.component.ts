@@ -22,9 +22,9 @@ import 'rxjs/add/observable/fromEvent';
 })
 export class ManagePostComponent implements OnInit {
 
-  private dataSize: number;
-  private dataSource: PostDataSource;
-  private displayedColumns = ['Invoice','PurchaseMen', 'PurchasePrice', 'PurchaseTime',  'Wholesaler', 'delete','edit' ,'Mtime'];
+  dataSize: number;
+  dataSource: PostDataSource;
+  displayColumns = ['Invoice','PurchaseMen', 'PurchasePrice', 'PurchaseTime',  'Wholesaler', 'delete','edit' ,'Mtime'];
   InvoiceFormControl = new FormControl('', [
   Validators.required]);
   PurchaseTimeFormControl = new FormControl('', [

@@ -213,7 +213,7 @@ export class AnnualReporteDialog {
   public dataSource: PostDataSource;
   public displayedColumns = ['check','date','orderQuantity', 'income', 'cash', 'card','mealTicket','other1' ,'other2','other3'];
   public deleteDataSource = new DeleteDataSource();
-  public deleteDisplayedColumns = ['type','orderQuantity','grossIncome', 'taxRate','taxIncome'];
+  public deleteDisplayedColumns = ['type','typeNumber','orderQuantity','grossIncome', 'taxRate','taxIncome'];
   @ViewChild(MatSort) sort: MatSort;
   constructor(private postService: CashRegisterService,public dialog: MatDialog,private dateAdapter:DateAdapter<Date>) {
     dateAdapter.setLocale('LL');
@@ -261,7 +261,7 @@ export class MonthlyReporteDialog {
   public dataSource: PostDataSource;
   public displayedColumns = ['check','date','orderQuantity', 'income', 'cash', 'card','mealTicket','other1' ,'other2','other3'];
   public deleteDataSource = new DeleteDataSource();
-  public deleteDisplayedColumns = ['type','orderQuantity','grossIncome', 'taxRate','taxIncome'];
+  public deleteDisplayedColumns = ['type','typeNumber','orderQuantity','grossIncome', 'taxRate','taxIncome'];
 
   @ViewChild(MatSort) sort: MatSort;
   constructor(private postService: CashRegisterService,public dialog: MatDialog,private dateAdapter:DateAdapter<Date>) {
