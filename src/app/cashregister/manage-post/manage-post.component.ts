@@ -30,10 +30,12 @@ export class ManagePostComponent implements OnInit {
   public deleteOrderDataSource = new DeleteOrderDataSource();
   public deleteOrderDisplayedColumns = ['date','id','price','reason'];
   public deleteDisplayedColumns = ['type','typeNumber','orderQuantity','grossIncome', 'taxRate','taxIncome'];
+  // @ViewChild('startDatePicker') startDatePicker: MdDatepicker<Date>;
   @ViewChild(MatSort) sort: MatSort;
   constructor(private postService: CashRegisterService,public dialog: MatDialog,private dateAdapter:DateAdapter<Date>) {
     dateAdapter.setLocale('LL');
    }
+  print="printDate";
   cashStatements:any[];
   selectedId:number=0;
   index:number=9;
@@ -83,20 +85,26 @@ export class ManagePostComponent implements OnInit {
   onDateChange(e){
     this.getCashAnnualRegister();
   }
+  onAnnualDateChange(e){
+    this.openAnnualDialog();
+  }
+  onMonthlyDateChange(e){
+    this.openMonthlyDialog();
+  }
   openAnnualDialog() {
     const dialogRef = this.dialog.open(AnnualReporteDialog, {
-      height: '600px'
+      height: 'auto'
     });
-
+    this.print='printYear';
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
   openMonthlyDialog() {
     const dialogRef = this.dialog.open(MonthlyReporteDialog, {
-      height: '600px'
+      height: 'auto'
     });
-
+    this.print='printMonth';
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });

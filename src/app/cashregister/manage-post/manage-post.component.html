@@ -130,8 +130,17 @@
                         <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
                         <mat-datepicker #myDatepicker></mat-datepicker>
                     </mat-form-field>
-                    <button mat-button (click)="openMonthlyDialog()">打开月报表</button>
-                    <button mat-button (click)="openAnnualDialog()">打开年报表</button>
+                    <button mat-button *ngIf="print=='printDate'">打印</button>
+                    <mat-form-field style="width:108px">
+                        <input matInput [matDatepicker]="picker" (dateChange)="onMonthlyDateChange($event)">
+                        <mat-datepicker #picker startView="month"></mat-datepicker>
+                        <button mat-raised-button (click)="picker.open()" style="position: absolute;right: -104px;top: 0px;">打开月报表</button>
+                    </mat-form-field>
+                    <mat-form-field style="width:108px">
+                        <input matInput [matDatepicker]="Annualpicker" (dateChange)="onAnnualDateChange($event)">
+                        <mat-datepicker #Annualpicker startView="year"></mat-datepicker>
+                        <button mat-raised-button (click)="Annualpicker.open()" style="position: absolute;right: -104px;top: 0px;">打开年报表</button>
+                    </mat-form-field>
                 </mat-card-footer>
             </mat-card>
         </mat-tab>
