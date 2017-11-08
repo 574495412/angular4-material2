@@ -17,14 +17,12 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/observable/fromEvent';
-// import { AnnualReporteDialog } from '../annual-report/annual-report.component';
-// import { MonthlyReporteDialog } from '../monthly-report/monthly-report.component';
 @Component({
-  selector: 'app-manage-post',
-  templateUrl: './manage-post.component.html',
-  styleUrls: ['./manage-post.component.scss']
+  selector: 'monthly-report-dialog',
+  templateUrl: '../monthly-report/monthly-report-dialog.html',
+  styleUrls: ['../manage-post/manage-post.component.scss']
 })
-export class ManagePostComponent implements OnInit {
+export class MonthlyReporteDialog implements OnInit {
 
   public dataSize: number;
   public dataSource: PostDataSource;
@@ -45,9 +43,10 @@ export class ManagePostComponent implements OnInit {
   ngOnInit() {
     this.getCashRegister();
   }
-  /************************* 获取日报表 ********************************/
+  /************************* 获取月报表 ********************************/
   getCashRegister() {
-        this.postService.getCashRegister()
+
+        this.postService.getCashMonthlyReport()
           .then(
             res => {
               this.cashStatements=res;
@@ -213,3 +212,6 @@ export class PostDataSource extends DataSource<IPost> {
   template: '<router-outlet></router-outlet>'
 })
 export class DialogContent{}
+
+
+

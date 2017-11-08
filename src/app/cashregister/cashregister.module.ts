@@ -9,9 +9,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { CashRegisterRoutingModule } from './cashregister-routing.module';
 import { CashRegisterComponent } from './cashregister.component';
 import { CashRegisterService } from './cashregister.server';
+import { DialogContent } from './manage-post/manage-post.component';
 import { ManagePostComponent } from './manage-post/manage-post.component';
-import { AnnualReporteDialog } from './manage-post/manage-post.component';
-import { MonthlyReporteDialog } from './manage-post/manage-post.component';
+import { AnnualReporteDialog } from './annual-report/annual-report.component';
+import { MonthlyReporteDialog } from './monthly-report/monthly-report.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -32,15 +33,17 @@ import { MonthlyReporteDialog } from './manage-post/manage-post.component';
     HttpModule,
     JsonpModule,
     CashRegisterRoutingModule,
-    MatCardModule
+    MatCardModule,
   ],
   declarations: [
     CashRegisterComponent,
+    DialogContent,
     ManagePostComponent,
     AnnualReporteDialog,
     MonthlyReporteDialog
   ],
    entryComponents: [
+    DialogContent,
     AnnualReporteDialog,
     MonthlyReporteDialog
   ],

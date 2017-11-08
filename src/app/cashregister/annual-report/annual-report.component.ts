@@ -1,3 +1,4 @@
+
 import { Component, OnInit, ViewChild,ElementRef } from '@angular/core';
 import {Router, Params} from '@angular/router'; 
 import {FormControl, Validators} from '@angular/forms';
@@ -20,11 +21,11 @@ import 'rxjs/add/observable/fromEvent';
 // import { AnnualReporteDialog } from '../annual-report/annual-report.component';
 // import { MonthlyReporteDialog } from '../monthly-report/monthly-report.component';
 @Component({
-  selector: 'app-manage-post',
-  templateUrl: './manage-post.component.html',
-  styleUrls: ['./manage-post.component.scss']
+  selector: 'annual-report-dialog',
+  templateUrl: '../annual-report/annual-report-dialog.html',
+  styleUrls: ['../manage-post/manage-post.component.scss']
 })
-export class ManagePostComponent implements OnInit {
+export class AnnualReporteDialog implements OnInit {
 
   public dataSize: number;
   public dataSource: PostDataSource;
@@ -45,9 +46,11 @@ export class ManagePostComponent implements OnInit {
   ngOnInit() {
     this.getCashRegister();
   }
-  /************************* 获取日报表 ********************************/
+
+  /************************* 获取年报表 ********************************/
   getCashRegister() {
-        this.postService.getCashRegister()
+
+        this.postService.getCashAnnulReport()
           .then(
             res => {
               this.cashStatements=res;
@@ -193,14 +196,6 @@ export class PostDataSource extends DataSource<IPost> {
   return data.sort((a, b) => {
     let propertyA: number|string = '';
     let propertyB: number|string = '';
-
-    // switch (this._sort.active) {
-    //   case 'date': [propertyA, propertyB] = [a.date, b.date]; break;
-    //   case 'orderQuantity': [propertyA, propertyB] = [a.orderQuantity, b.orderQuantity]; break;
-    //   case 'income': [propertyA, propertyB] = [a.income, b.income]; break;
-    //   case 'cash': [propertyA, propertyB] = [a.cash, b.cash]; break;
-    // }
-
     let valueA = isNaN(+propertyA) ? propertyA : +propertyA;
     let valueB = isNaN(+propertyB) ? propertyB : +propertyB;
 
@@ -213,3 +208,5 @@ export class PostDataSource extends DataSource<IPost> {
   template: '<router-outlet></router-outlet>'
 })
 export class DialogContent{}
+
+
