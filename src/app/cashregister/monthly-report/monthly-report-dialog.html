@@ -130,7 +130,7 @@
                         <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
                         <mat-datepicker #myDatepicker></mat-datepicker>
                     </mat-form-field>
-                    <button mat-button>打印</button>
+                    <button mat-button (click)="preview(1)">打印</button>
                     <button mat-button [matMenuTriggerFor]="menu">打开月报表</button>
                     <mat-menu #menu="matMenu">
                         <button mat-menu-item (click)="openMonthlyDialog()">一月</button>

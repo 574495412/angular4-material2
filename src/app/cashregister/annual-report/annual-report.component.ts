@@ -46,7 +46,16 @@ export class AnnualReporteDialog implements OnInit {
   ngOnInit() {
     this.getCashRegister();
   }
-
+  preview(oper)
+  {
+  if (oper < 10)
+  {
+  window.print();
+  // window.document.body.innerHTML=bdhtml;
+  } else {
+  window.print();
+   }
+}
   /************************* 获取年报表 ********************************/
   getCashRegister() {
 
@@ -146,29 +155,40 @@ export class DeleteOrderDataSource extends DataSource<deleteOrderElement> {
 }
 export interface Element {
   type: string;
-  typeNumber:string;
+  typeNumber:any;
   orderQuantity: string;
-  grossIncome: string;
-  taxRate: string;
-  taxIncome:string;
+  grossIncome: any;
+  taxRate: any;
+  taxIncome:any;
 }
-
 const data: Element[] = [
-  {type:'餐饮类型',  typeNumber:'12',orderQuantity: '12', grossIncome: '2000' ,taxRate: '10%(200)',taxIncome:'1800'},
-  {type:'打包类型', typeNumber:'12',orderQuantity: '12', grossIncome: '2000' ,taxRate: '10%(200)',taxIncome:'1800'},
-  {type:'送包类型', typeNumber:'12',orderQuantity: '12', grossIncome: '2000' ,taxRate: '10%(200)',taxIncome:'1800'},
-  {type:'常规税率', typeNumber:'其他税率1', orderQuantity: '其他税率2', grossIncome: '其他税率3' ,taxRate: '其他税率4',taxIncome:'总的税率'},
-  {type:'300', typeNumber:'20%(200)',orderQuantity: '0%(0)', grossIncome: '0%(0)' ,taxRate: '0%(0)',taxIncome:'500'},
+  {type:'餐饮类型',  typeNumber:'12',orderQuantity: '12', grossIncome: 2000 ,taxRate: 0.1,taxIncome:null},
+  {type:'打包类型', typeNumber:'12',orderQuantity: '12', grossIncome: 2000 ,taxRate: 0.1,taxIncome:null},
+  {type:'送包类型', typeNumber:'12',orderQuantity: '12', grossIncome: 2000 ,taxRate: 0.1,taxIncome:null},
 ];
 
 export class DeleteDataSource extends DataSource<Element> {
   /** Connect function called by the table to retrieve one stream containing the data to render. */
   connect(): Observable<Element[]> {
+    let conventionalTaxRate:any={type:0, typeNumber:0.2,orderQuantity: 0, grossIncome: 0 ,taxRate: 0,taxIncome:0}
+    for(let item of data){
+      item.taxIncome=item.grossIncome-item.grossIncome*item.taxRate;
+      item.taxRate=item.taxRate*100+'%('+item.grossIncome*item.taxRate+')';
+      conventionalTaxRate.type=conventionalTaxRate.type+item.taxIncome
+    }
+    conventionalTaxRate.taxIncome=conventionalTaxRate.type+(1000*conventionalTaxRate.typeNumber);
+    conventionalTaxRate.typeNumber=conventionalTaxRate.typeNumber*100+'%('+1000*conventionalTaxRate.typeNumber+')';
+    conventionalTaxRate.orderQuantity=conventionalTaxRate.orderQuantity*100+'%('+conventionalTaxRate.orderQuantity+')';
+    conventionalTaxRate.grossIncome=conventionalTaxRate.grossIncome*100+'%('+conventionalTaxRate.grossIncome+')';
+    conventionalTaxRate.taxRate=conventionalTaxRate.taxRate*100+'%('+conventionalTaxRate.taxRate+')';
+    data.push( {type:'常规税率', typeNumber:'其他税率1', orderQuantity: '其他税率2', grossIncome: '其他税率3' ,taxRate: '其他税率4',taxIncome:'总的税率'})
+    data.push(conventionalTaxRate)   
     return Observable.of(data);
   }
 
   disconnect() {}
 }
+
 export class PostDataSource extends DataSource<IPost> {
 
   get data(): IPost[] { return this.dataChange.value; }
